@@ -181,4 +181,5 @@ cython_debug/
 typecheck.txt
 lint.txt
 test.txt
+.DS_Store
 # End of https://www.toptal.com/developers/gitignore/api/python
