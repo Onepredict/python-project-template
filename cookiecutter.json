@@ -2,8 +2,8 @@
   "project_name": "project_name",
   "arthor_email": "arthor_email",
   "arthor_name": "arthor_name",
-  "use_docker": "yes/no"
+  "use_docker": "yes/no",
   "_copy_without_render": [
     ".github"
-  ],
+  ]
 }
