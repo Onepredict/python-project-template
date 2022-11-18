@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+  {{cookiecutter.project_name}}:
+    build:
+      context: ./build
+      dockerfile: Dockerfile
+    hostname: {{cookiecutter.project_name}}
+    container_name: {{cookiecutter.project_name}}
+    restart: always

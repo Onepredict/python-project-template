@@ -1,6 +1,7 @@
 .ONESHELL:
 
 setup:
+	git init
 	git config commit.template .gitmessage.txt
 	python3.10 -m venv .venv
 	poetry install
