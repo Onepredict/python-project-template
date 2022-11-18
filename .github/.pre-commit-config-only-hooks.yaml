@@ -4,19 +4,21 @@ repos:
     hooks:
     - id: check-added-large-files
       name: Check added large files
-    - id: check-json
-      name: Check json
     - id: check-merge-conflict
       name: Check merge conflict
-    - id: check-yaml
-      name: Check yaml
-    - id: check-toml
-      name: Check toml
-    - id: end-of-file-fixer
-      name: End of file fixer
+    - id: check-json
+      name: Check json
     - id: pretty-format-json
       name: Pretty format json
       args:
         - --autofix
+    - id: check-yaml
+      name: Check yaml
+    - id: check-toml
+      name: Check toml
+    - id: check-docstring-first
+      name: Check docstring first
+    - id: end-of-file-fixer
+      name: End of file fixer
     - id: trailing-whitespace
       name: Trailing whitespace

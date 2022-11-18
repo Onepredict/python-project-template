@@ -178,4 +178,7 @@ cython_debug/
 ./reports
 ./volumes
 
+typecheck.txt
+lint.txt
+test.txt
 # End of https://www.toptal.com/developers/gitignore/api/python
