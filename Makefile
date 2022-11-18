@@ -2,9 +2,9 @@
 
 setup:
 	git config commit.template .gitmessage.txt
+	python3.10 -m venv .venv
 	poetry install
 	poetry run pre-commit install
-	chmod -R +x scripts
 
 clean:
 	rm -vrf ./build ./dist ./*.tgz ./*.egg-info .pytest_cache .mypy_cache
