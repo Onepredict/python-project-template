@@ -7,11 +7,11 @@ jobs:
       #----------------------------------------------
       #       check-out repo and set-up python
       #----------------------------------------------
-      - uses: actions/checkout@v2
-      - uses: actions/setup-python@v2
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         id: setup-python
         with:
-          python-version: 3.9
+          python-version: '3.10'
       #----------------------------------------------
       #  -----  install & configure poetry  -----
       #----------------------------------------------
@@ -25,7 +25,7 @@ jobs:
       #----------------------------------------------
       - name: Load cached venv
         id: cached-poetry-dependencies
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: .venv
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
@@ -43,10 +43,18 @@ jobs:
       #----------------------------------------------
       # run hook, format, lint, typecheck, test
       #----------------------------------------------
-      - name: Run formatters and linters
+      - name: Run formatters and linters and typechecker
         run: |
           bash ./scripts/hooks.sh
           bash ./scripts/format.sh .
           bash ./scripts/lint.sh .
           bash ./scripts/typecheck.sh .
           bash ./scripts/test.sh
+      #----------------------------------------------
+      # comment test, coverage result
+      #----------------------------------------------
+      - name: Pytest coverage comment
+        uses: MishaKav/pytest-coverage-comment@main
+        with:
+          pytest-coverage-path: ./pytest-coverage.txt
+          junitxml-path: ./pytest.xml
